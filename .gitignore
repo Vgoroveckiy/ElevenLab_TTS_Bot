@@ -1,0 +1,71 @@
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+develop-eggs/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg
+MANIFEST
+config.py
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDE and editor files
+.vscode/
+*.code-workspace
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# Virtual environment files
+/bin/
+/include/
+/lib/
+/src/
+/share/
+/local/
+
+# Other common files to ignore
+*.bak
+*.tmp
+*.swp
+*~
