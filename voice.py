@@ -2,6 +2,7 @@ from elevenlabs import save
 from elevenlabs.client import ElevenLabs
 
 import config
+import uuid  # добавлено для генерации уникальных имен файлов
 
 client = ElevenLabs(
     api_key=config.elevenlabs_api_key,
@@ -18,6 +19,7 @@ def generate_audio(text: str, voice: str):
         voice=voice,  # здесь просто ID или имя голоса
         model="eleven_multilingual_v2",
     )
-    name = "audio.mp3"
+    # Генерируем уникальное имя файла
+    name = f"audio_{uuid.uuid4().hex}.mp3"
     save(audio, name)
     return name
