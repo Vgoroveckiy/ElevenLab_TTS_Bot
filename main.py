@@ -21,7 +21,9 @@ def send_welcome(message):
         row_width=4, one_time_keyboard=True, resize_keyboard=True
     )
 
-    buttons = [types.KeyboardButton(v.name) for v in voices.voices]
+    buttons = [
+        types.KeyboardButton(v.name) for v in voices.voices if v.name is not None
+    ]
     markup.add(*buttons)  # добавляем все кнопки сразу с нужной разбивкой по рядам
 
     bot.send_message(
@@ -33,6 +35,21 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
+    """
+    Обработчик для любых сообщений от пользователя.
+
+
+    Он может быть вызван:
+    - при выборе голоса;
+    - при отправке текста для озвучки;
+    - при выборе действия после отправки озвученного текста.
+
+
+    В зависимости от типа сообщения он:
+    - Проверяет, что пользователь выбрал голос;
+    - Озвучивает текст;
+    - Предлагает выбор — сменить голос, озвучить еще текст или отправить голосовое сообщение.
+    """
     chat_id = message.chat.id
 
     if chat_id not in user_voice_selection:
